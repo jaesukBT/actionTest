@@ -2745,7 +2745,7 @@ async function run() {
     core.debug(new Date().toTimeString())
 
     // Set outputs for other workflow steps to use
-    core.setOutput('time', new Date().toTimeString())
+    core.setOutput('time', `${new Date().toTimeString()} hellow whata's up`)
   } catch (error) {
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)
