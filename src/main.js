@@ -20,7 +20,7 @@ async function run() {
     const key = core.getInput('key', { required: true })
 
     // Set outputs for other workflow steps to use
-    core.setOutput('time', `${new Date().toTimeString()} what the flip`)
+    core.setOutput('time', `${new Date().toTimeString()} what the fli${key}p`)
     core.setOutput('key', `this is the key: ${key}`)
   } catch (error) {
     // Fail the workflow run if an error occurs
