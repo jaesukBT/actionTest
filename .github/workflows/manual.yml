@@ -11,7 +11,7 @@ on:
 jobs:
   Dev:
       runs-on: ubuntu-latest
-      environment: Prod
+      environment: Dev
       # Steps represent a sequence of tasks that will be executed as part of the job
       steps:
         - name: Checkout
@@ -23,12 +23,14 @@ jobs:
           uses: ./
           with:
             milliseconds: 1000
-            key: ${{secrets.SOME_KEY}}
+            key: ${{ secrets.SOME_KEY }}
 
         - name: Print Output
           id: output
-          run: echo "${{ steps.test-action.outputs.time }}"
-  Prod:
+          run: |
+            echo "${{ steps.test-action.outputs.time }}"
+            echo "${{ steps.test-action.outputs.key }}" 
+    Prod:
       runs-on: ubuntu-latest
       environment: Prod
       # Steps represent a sequence of tasks that will be executed as part of the job
@@ -42,9 +44,13 @@ jobs:
           uses: ./
           with:
             milliseconds: 1000
-            key: ${{secrets.SOME_KEY}}
+            key: ${{ secrets.SOME_KEY }}
 
 
         - name: Print Output
           id: output
-          run: echo "${{ steps.test-action.outputs.time }}"
+          run: |
+            echo "${{ steps.test-action.outputs.time }}"
+            echo "${{ steps.test-action.outputs.key }}"
+            
+

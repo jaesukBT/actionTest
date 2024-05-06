@@ -18,6 +18,7 @@ async function run() {
     core.debug(new Date().toTimeString())
 
     const key = core.getInput('key', {required: true})
+    core.setOutput('key', `this is the key: ${key}`)
 
     // Set outputs for other workflow steps to use
     core.setOutput('time', `${new Date().toTimeString()} ${key}`)
