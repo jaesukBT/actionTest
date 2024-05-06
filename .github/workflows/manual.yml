@@ -30,7 +30,7 @@ jobs:
           run: |
             echo "${{ steps.test-action.outputs.time }}"
             echo "${{ steps.test-action.outputs.key }}" 
-    Prod:
+  Prod:
       runs-on: ubuntu-latest
       environment: Prod
       # Steps represent a sequence of tasks that will be executed as part of the job
