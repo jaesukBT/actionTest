@@ -8,11 +8,17 @@ inputs:
     description: 'Your input description here'
     required: true
     default: '1000'
+  key:
+    description: 'someting'
+    required: true
+    default: 'no key'
 
 # Define your outputs here.
 outputs:
   time:
     description: 'Your output description here'
+  key: 
+    description: 'sometinng'
 
 runs:
   using: node20

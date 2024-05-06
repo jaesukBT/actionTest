@@ -17,8 +17,11 @@ async function run() {
     await wait(parseInt(ms, 10))
     core.debug(new Date().toTimeString())
 
+    const key = core.getInput('key', {required: true})
+    core.setOutput('key', `this is the key: ${key}`)
+
     // Set outputs for other workflow steps to use
-    core.setOutput('time', new Date().toTimeString())
+    core.setOutput('time', `${new Date().toTimeString()} ${key} what the flip`)
   } catch (error) {
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)
